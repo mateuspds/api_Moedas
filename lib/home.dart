@@ -17,11 +17,7 @@ class _HomeState extends State<Home> {
     Dola(),
     Euro(),
     Aus(),
-    Homel(),
-
-    
-    
-    
+    Homel(), 
   ];
   @override
   Widget build(BuildContext context) {

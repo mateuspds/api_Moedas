@@ -1,21 +1,15 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:async';
+import '../api/fuction.dart';
 class Aus extends StatefulWidget {
   @override
   _AusState createState() => _AusState();
 }
 class _AusState extends State<Aus> {
-  Future<Map>recuperarpreco()async{
-    String url = 'https://economia.awesomeapi.com.br/json/all/CAD-BRL';
-    http.Response response= await http.get(url);
-    return jsonDecode(response.body) ;
-  }
   @override
   Widget build(BuildContext context) {
     return  FutureBuilder<Map>(
-      future: recuperarpreco(),
+      future: recuperarPreco
+        ('https://economia.awesomeapi.com.br/json/all/CAD-BRL'),
       builder: (context, snapshot){
 
         String resultado;

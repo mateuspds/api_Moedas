@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'dart:async';
+import 'fuction.dart';
 
 class Homel extends StatefulWidget {
   @override
@@ -9,17 +7,10 @@ class Homel extends StatefulWidget {
 }
 
 class _HomelState extends State<Homel> {
-
-  Future<Map> _recuperarPreco() async {
-    String url = "https://economia.awesomeapi.com.br/json/all/CNY-BRL";
-    http.Response response = await http.get(url);
-    return json.decode( response.body );
-  }
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Map>(
-      future: _recuperarPreco(),
+      future: recuperarPreco("https://economia.awesomeapi.com.br/json/all/CNY-BRL"),
       builder: (context, snapshot){
 
         String resultado;

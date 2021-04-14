@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:async';
+import '../api/fuction.dart';
 
 class Dola extends StatefulWidget {
   @override
@@ -9,15 +7,10 @@ class Dola extends StatefulWidget {
 }
 
 class _DolaState extends State<Dola> {
-   Future<Map>recuperarpreco()async{
-    String url = 'https://economia.awesomeapi.com.br/json/all/USD-BRL';
-    http.Response response= await http.get(url);
-    return jsonDecode(response.body) ;
-  }
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Map>(
-      future: recuperarpreco(),
+      future: recuperarPreco('https://economia.awesomeapi.com.br/json/all/USD-BRL') ,
       builder: (context, snapshot){
 
         String resultado;
