@@ -10,9 +10,8 @@ class _DolaState extends State<Dola> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Map>(
-      future: recuperarPreco('https://economia.awesomeapi.com.br/json/all/USD-BRL') ,
+      future:recuperarPreco('https://economia.awesomeapi.com.br/json/all/USD-BRL'),
       builder: (context, snapshot){
-
         String resultado;
         switch( snapshot.connectionState ){
           case ConnectionState.none :
